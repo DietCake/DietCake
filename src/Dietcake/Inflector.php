@@ -5,9 +5,4 @@ class Inflector
     {
         return str_replace(' ', '', ucwords(str_replace('_', ' ', $str)));
     }
-
-    public static function underscore($str)
-    {
-        return strtolower(preg_replace('/(?<=\\w)([A-Z]+)/', '_\\1', $str));
-    }
 }
