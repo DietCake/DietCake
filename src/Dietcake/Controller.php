@@ -1,11 +1,13 @@
 <?php
 class Controller
 {
-    public $name;
-    public $action;
-    public $view;
-    public $default_view_class = 'View';
-    public $output;
+    public $name;           // コントローラ名
+    public $action;         // アクション名
+    public $view;           // ビュー
+
+    public $default_view_class = 'View';     // デフォルトのビュークラス名
+
+    public $output;         // 出力結果
 
     public function __construct($name)
     {
@@ -23,19 +25,42 @@ class Controller
 
     public function dispatchAction()
     {
+        if (!self::isAction($this->action)) {
+            // アクション名が予約語などで正しくないとき
+            throw new DCException('invalid action name');
+        } 
+
+        if (!method_exists($this, '__call')) {
+            if (!method_exists($this, $this->action)) {
+                // アクションがコントローラに存在しないとき
+                throw new DCException('action does not exist');
+            }
+            $method = new ReflectionMethod($this, $this->action);
+            if (!$method->isPublic()) {
+                // アクションが public メソッドではないとき
+                throw new DCException('action is not public');
+            }
+        }
+
+        // アクションの実行
+        $this->{$this->action}();
+
+        $this->render();
     }
 
+    // アクション名の妥当性を検証する
     public static function isAction($action)
     {
-        $methods = get_class_methods(__CLASS__);
+        $methods = get_class_methods('Controller');
         return !in_array($action, $methods);
     }
 
+    // ビューに値を渡す
     public function set($name, $value = null)
     {
         if (is_array($name)) {
             foreach ($name as $k => $v) {
-                $this->set($k, $v);
+                $this->view->vars[$k] = $v;
             }
         } else {
             $this->view->vars[$name] = $value;
@@ -48,5 +73,14 @@ class Controller
 
     public function render($action = null)
     {
+        static $is_rendered = false;
+
+        if ($is_rendered) {
+            return;
+        }
+
+        $this->beforeRender();
+        $this->view->render($action);
+        $is_rendered = true;
     }
 }
