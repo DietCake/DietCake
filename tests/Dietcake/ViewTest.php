@@ -23,7 +23,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
     {
         $vFile = vfsStream::newFile('index.php');
         $vFile->setContent(
-            <<<EOF
+            <<<'EOF'
 Hello <?= $name ?> !!
 EOF
         );
@@ -38,7 +38,7 @@ EOF
     {
         $vFile = vfsStream::newFile('index.php');
         $vFile->setContent(
-            <<<EOF
+            <<<'EOF'
 Hello <?= $name ?> !!
 EOF
         );
