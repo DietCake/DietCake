@@ -24,9 +24,9 @@ class View
     {
         $action = is_null($action) ? $this->controller->action : $action;
         if (strpos($action, '/') === false) {
-            $view_filename = VIEWS_DIR . $this->controller->name . '/' . $action . self::$ext;
+            $view_filename = VIEWS_DIR . DIRECTORY_SEPARATOR . $this->controller->name . DIRECTORY_SEPARATOR . $action . self::$ext;
         } else {
-            $view_filename = VIEWS_DIR . $action . self::$ext;
+            $view_filename = VIEWS_DIR . DIRECTORY_SEPARATOR . $action . self::$ext;
         }
         $content = self::extract($view_filename, $this->vars);
         $this->controller->output .= $content;

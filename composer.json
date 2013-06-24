@@ -1,0 +1,30 @@
+{
+    "name": "dietcake/dietcake",
+    "description": "Fastest MVC framework skeleton for PHP",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["framework"],
+    "homepage": "http://dietcake.github.io/",
+    "authors": [
+        {
+            "name": "ttsuruoka",
+            "email": "ttsuruoka@php.net",
+            "role": "developer"
+        },
+        {
+            "name": "xcezx",
+            "email": "main.xcezx@gmail.com",
+            "role": "maintainer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": "src/Dietcake/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "mikey179/vfsStream": "1.3.*@dev"
+    }
+}
