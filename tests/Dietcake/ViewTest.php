@@ -28,7 +28,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
         $vFile = vfsStream::newFile('index.php');
         $vFile->setContent(
             <<<'EOF'
-Hello <?= $name ?> !!
+Hello <?php echo $name ?> !!
 EOF
         );
         $this->root->addChild($vFile);
