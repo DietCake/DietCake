@@ -11,7 +11,6 @@ class ViewTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->root = vfsStream::setup('root');
-        define('VIEWS_DIR', vfsStream::url($this->root->getName()));
 
         $this->controller = $this->getMockBuilder('Controller')
             ->disableOriginalConstructor()
@@ -19,8 +18,13 @@ class ViewTest extends PHPUnit_Framework_TestCase
         $this->view = new View($this->controller);
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testRender()
     {
+        define('VIEWS_DIR', vfsStream::url($this->root->getName()));
+
         $vFile = vfsStream::newFile('index.php');
         $vFile->setContent(
             <<<'EOF'
