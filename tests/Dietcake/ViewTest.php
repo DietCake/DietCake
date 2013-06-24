@@ -43,7 +43,7 @@ EOF
         $vFile = vfsStream::newFile('index.php');
         $vFile->setContent(
             <<<'EOF'
-Hello <?= $name ?> !!
+Hello <?php echo $name ?> !!
 EOF
         );
         $this->root->addChild($vFile);
