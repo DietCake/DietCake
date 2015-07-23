@@ -2,7 +2,7 @@
 class View
 {
     public $controller;             // コントローラへの参照
-    public $vars = array();         // 展開する変数
+    public $vars = [];         // 展開する変数
     public static $ext = '.php';
 
     public function __construct($controller)
