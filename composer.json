@@ -1,0 +1,16 @@
+{
+    "name": "dietcake/dietcake",
+    "description": "Fastest MVC framework skeleton for PHP",
+    "version": "1.0.0",
+    "type": "library",
+    "homepage": "http://dietcake.github.io/",
+    "license": "MIT",
+    "authors": [{
+        "name": "ttsuruoka",
+        "email": "ttsuruoka@php.net",
+        "role": "developer"
+    }],
+    "require-dev": {
+        "phpunit/phpunit": "3.7.38"
+    }
+}
