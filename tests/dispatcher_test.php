@@ -5,9 +5,9 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 {
     public function test_parseAction()
     {
-        $this->assertEquals(array('top', 'index'), Dispatcher::parseAction('top/index'));
-        $this->assertEquals(array('player', 'view_record'), Dispatcher::parseAction('player/view_record'));
-        $this->assertEquals(array('event_top', 'index'), Dispatcher::parseAction('event/top/index'));
+        $this->assertEquals(['top', 'index'], Dispatcher::parseAction('top/index'));
+        $this->assertEquals(['player', 'view_record'], Dispatcher::parseAction('player/view_record'));
+        $this->assertEquals(['event_top', 'index'], Dispatcher::parseAction('event/top/index'));
 
     }
 

@@ -34,7 +34,7 @@ class Dispatcher
         $action_name = array_pop($action);
         $controller_name = join("_", $action);
 
-        return array($controller_name, $action_name);
+        return [$controller_name, $action_name];
     }
 
     /**

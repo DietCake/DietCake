@@ -6,7 +6,7 @@ class ModelTest extends PHPUnit_Framework_TestCase
     public function test_set()
     {
         $model = new Model;
-        $model->set(array('foo' => 200, 'bar' => 'test'));
+        $model->set(['foo' => 200, 'bar' => 'test']);
         $this->assertEquals(200, $model->foo);
         $this->assertEquals('test', $model->bar);
     }
@@ -38,11 +38,11 @@ class ModelTest extends PHPUnit_Framework_TestCase
 
 class TestPlayer extends Model
 {
-    public $validation = array(
-        'name' => array(
-            'between' => array('validate_between', 3, 16),
-        ),
-    );
+    public $validation = [
+        'name' => [
+            'between' => ['validate_between', 3, 16],
+        ],
+    ];
 }
 
 function validate_between($check, $min, $max)
