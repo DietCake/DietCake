@@ -12,9 +12,11 @@ class DispatcherTest extends TestCase
         $this->assertEquals(array('event_top', 'index'), Dispatcher::parseAction('event/top/index'));
     }
 
+    /**
+     * @expectedException DCException
+     */
     public function test_parseAction_02()
     {
-        $this->setExpectedException('DCException', 'invalid url format');
         Dispatcher::parseAction('top');
     }
 
@@ -23,9 +25,11 @@ class DispatcherTest extends TestCase
         $this->assertTrue(Dispatcher::getController('hello') instanceof HelloController);
     }
 
+    /**
+     * @expectedException DCException
+     */
     public function test_getController_02()
     {
-        $this->setExpectedException('DCException', 'FooController is not found');
         Dispatcher::getController('foo');
     }
 }
