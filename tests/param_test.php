@@ -27,4 +27,13 @@ class ParamTest extends TestCase
         $_REQUEST['foo'] = 100;
         $this->assertEquals(['foo' => 100], Param::params());
     }
+
+    public function test_getHeader()
+    {
+        $this->assertEquals(null, Param::getHeader('foo'));
+        $this->assertEquals(1, Param::getHeader('foo', 1));
+        $_SERVER['HTTP_FOO'] = 'juno';
+        $this->assertEquals('juno', Param::getHeader('foo'));
+        $this->assertEquals('juno', Param::getHeader('foo', 1));
+    }
 }
