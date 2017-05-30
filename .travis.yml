@@ -7,7 +7,7 @@ php:
   - 5.6
   - 7.0
 
-script: phpunit --coverage-text -c ./tests/phpunit.xml
+script: phpunit -v --coverage-text -c ./tests/phpunit.xml
 
 matrix:
   allow_failures:
