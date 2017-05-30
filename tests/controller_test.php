@@ -1,6 +1,4 @@
 <?php
-require_once dirname(__FILE__).'/bootstrap.php';
-
 class ControllerTest extends PHPUnit_Framework_TestCase
 {
     public function test_isAction()
