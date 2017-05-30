@@ -1,7 +1,9 @@
 <?php
 require_once dirname(__FILE__).'/bootstrap.php';
 
-class ParamTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ParamTest extends TestCase
 {
     public function test_get()
     {
