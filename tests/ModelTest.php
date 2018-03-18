@@ -15,6 +15,7 @@ class ModelTest extends TestCase
 
     public function test_validate()
     {
+        require_once __DIR__.'/globalnamespace/TestPlayer.php';
         $test_player = new TestPlayer;
         $test_player->name = '';
         $this->assertFalse($test_player->validate());
@@ -36,13 +37,4 @@ class ModelTest extends TestCase
         $this->assertFalse($test_player->validate());
         $this->assertTrue($test_player->hasError());
     }
-}
-
-class TestPlayer extends Model
-{
-    public $validation = array(
-        'name' => array(
-            'between' => array('validate_between', 3, 16),
-        ),
-    );
 }
