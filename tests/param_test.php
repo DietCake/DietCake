@@ -5,6 +5,11 @@ use PHPUnit\Framework\TestCase;
 
 class ParamTest extends TestCase
 {
+    protected function setUp()
+    {
+        require_once __DIR__.'/globalnamespace/functions.php';
+    }
+
     public function test_get()
     {
         $_REQUEST['foo'] = 200;
