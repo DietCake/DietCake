@@ -1,6 +1,6 @@
 <?php
 namespace DietCake;
 
-class DCException extends Exception
+class DCException extends \Exception
 {
 }

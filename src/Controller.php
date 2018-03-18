@@ -39,7 +39,7 @@ class Controller
                 // アクションがコントローラに存在しないとき
                 throw new DCException(sprintf('Action "%s::%s()" does not exist', get_class($this), $this->action));
             }
-            $method = new ReflectionMethod($this, $this->action);
+            $method = new \ReflectionMethod($this, $this->action);
             if (!$method->isPublic()) {
                 // アクションが public メソッドではないとき
                 throw new DCException('action is not public');
