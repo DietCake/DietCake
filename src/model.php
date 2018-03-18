@@ -1,4 +1,6 @@
 <?php
+namespace DietCake;
+
 class Model
 {
     public $id;

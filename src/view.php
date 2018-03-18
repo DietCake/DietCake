@@ -1,4 +1,6 @@
 <?php
+namespace DietCake;
+
 class View
 {
     public $controller;             // コントローラへの参照

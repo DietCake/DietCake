@@ -1,4 +1,6 @@
 <?php
+namespace DietCake;
+
 class Dispatcher
 {
     public static function invoke()
