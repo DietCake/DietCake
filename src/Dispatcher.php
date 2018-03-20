@@ -3,6 +3,8 @@ namespace DietCake;
 
 class Dispatcher
 {
+    const DC_ACTION = 'dc_action';
+
     public static function invoke()
     {
         list($controller_name, $action_name) = static::parseAction(Param::get(DC_ACTION));

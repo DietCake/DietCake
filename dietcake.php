@@ -6,12 +6,17 @@
  * @license MIT License
  * @author Tatsuya Tsuruoka <http://github.com/ttsuruoka>
  */
+
+use DietCake\Dispatcher;
+
 mb_internal_encoding('UTF-8');
 define('TIME_START', microtime(true));
-define('DC_ACTION', 'dc_action');
+define('DC_ACTION', Dispatcher::DC_ACTION);
 
 define('DC_DIR', __DIR__.'/');
 define('DC_CORE_DIR', DC_DIR.'core/');
+
+
 define('CONFIG_DIR', APP_DIR.'config/');
 define('CONTROLLERS_DIR', APP_DIR.'controllers/');
 define('MODELS_DIR', APP_DIR.'models/');
