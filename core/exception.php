@@ -3,4 +3,3 @@
 class DCException extends DietCake\DCException
 {
 }
-
