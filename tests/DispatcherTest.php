@@ -34,4 +34,3 @@ class DispatcherTest extends TestCase
         Dispatcher::getController('foo');
     }
 }
-
